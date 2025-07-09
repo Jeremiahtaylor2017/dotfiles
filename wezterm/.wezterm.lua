@@ -10,8 +10,14 @@ M.bg_image = M.bg_blurred_darker
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
+-- Config goes in between.
 
--- Config goes in between
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_domain = { "WSL:Ubuntu" }
+else
+    config.default_domain = { "local" }
+end
+
 -- Font settings
 config.font_size = 14
 config.line_height = 1.1
