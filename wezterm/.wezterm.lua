@@ -13,9 +13,9 @@ local config = wezterm.config_builder()
 -- Config goes in between.
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_domain = { "WSL:Ubuntu" }
+    config.default_domain = "WSL:Ubuntu"
 else
-    config.default_domain = { "local" }
+    config.default_domain = "local"
 end
 
 -- Font settings
