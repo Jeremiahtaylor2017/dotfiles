@@ -7,16 +7,20 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "Detected macOS"
     ln -sf ~/dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
+    ln -sf ~/dotfiles/oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     if grep -qEi "(Microsoft|WSL)" /prox/version &> /dev/null ; then
     echo "Detected WSL"
     ln -sf ~/dotfiles/.zshrc ~/.zshrc
+    ln -sf ~/dotfiles/oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
     fi
 
 else
     echo "Unsupported OS: $OSTYPE"
 fi
+
+echo "Symlinks complete"
 
 echo "Installing custom oh-my-zsh plugins"
 
