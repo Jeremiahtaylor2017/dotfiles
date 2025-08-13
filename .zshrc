@@ -85,8 +85,21 @@ source ~/dotfiles/extensions/lscolors/lscolors.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+# go
 export PATH="$PATH:$HOME/go/bin"
+# rust
 export PATH="$PATH:$HOME/.cargo/bin"
+# .local linux paths
+export PATH="$HOME/.local/bin:$PATH"
+
+# shell wrapper for yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
