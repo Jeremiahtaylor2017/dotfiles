@@ -42,3 +42,29 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
 fi
 
 echo "✅ Plugins installed!"
+
+# tmux
+echo "Setting up tmux..."
+
+ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+mkdir -p ~/.tmux/plugins
+
+if ! command -v tmux >/dev/null 2>&1; then
+	echo "tmux is not installed. Install it first, then re-run this script."
+else
+	echo "tmux found: $(tmux -V)"
+fi
+
+# TPM
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+# Catppuccin is referenced directly in .tmux.conf, so install it manually
+if [ ! -d ~/.tmux/plugins/catppuccin/tmux ]; then
+	git clone https://github.com/catppuccin/tmux.git ~/.tmux/plugins/catppucin/tmux
+fi
+
+echo "tmux config linked."
+echo "TMP and Catppuccin are installed if they were missing."
+echo "Open tmux and press prefix + I to install/update TPM-managed plugins."

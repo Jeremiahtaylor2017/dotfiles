@@ -4,7 +4,7 @@ alias lah="lsd -lah --group-dirs last"
 alias ll="lsd -l --group-dirs last"
 alias tree="lsd --tree"
 
-alias cat="batcat"
-
 alias pip="pip3"
 alias python="python3"
+
+alias k="kubectl"
