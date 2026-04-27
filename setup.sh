@@ -62,7 +62,7 @@ fi
 
 # Catppuccin is referenced directly in .tmux.conf, so install it manually
 if [ ! -d ~/.tmux/plugins/catppuccin/tmux ]; then
-	git clone https://github.com/catppuccin/tmux.git ~/.tmux/plugins/catppucin/tmux
+	git clone https://github.com/catppuccin/tmux.git ~/.tmux/plugins/catppuccin/tmux
 fi
 
 echo "tmux config linked."
